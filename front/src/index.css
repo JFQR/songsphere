@@ -1,0 +1,696 @@
+/*CSS cleaning*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  font-family: "Montserrat", sans-serif;
+  background-color: black;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+/*---------------------------------variables-----------------------------*/
+:root{
+  --myGrey:#212121
+}
+/*----------------------------------HTML ELEMENTS-------------------------------*/
+a {
+  cursor:pointer;
+}
+.link{
+  text-decoration: none;
+  color:white
+}
+header{
+  position:fixed;
+  display: block;
+  z-index:999;
+}
+footer{
+  height:30vh;
+  background-color: black;
+  display: flex;
+  flex-direction:column;
+  box-shadow: 0px 0px 1px white;
+}
+main{
+  min-height: 105vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:1rem;
+}
+h1,h2,h3{
+  color:white
+}
+button{
+  cursor:pointer;
+  border:none;
+}
+button:hover{
+  background-color: hotpink;
+  color:white;
+}
+input:focus{
+  box-shadow: 0px 0px 5px 5px white;
+}
+input:focus::placeholder{
+  color: rgba(255, 255, 255, 0.6);
+}
+input::placeholder{
+  color: rgba(255, 255, 255, 1);
+}
+textarea{
+  width: 400px;
+  height: 300px;
+  color: white;
+  background-color: black;
+  padding: 1rem;
+  resize: none;
+}
+textarea:focus{
+  box-shadow: 0px 0px 5px 5px white;
+}
+/*---------------------------------NAVBAR COMPONENT------------------------------*/
+.superior-navbar{
+  background-color:blueviolet;
+  color:white;
+  
+  width:100vw;
+  height: 2rem;
+
+  display: flex;
+  justify-content: center;
+}
+.profile-circle{
+  position: absolute;
+  background-color:rgb(87, 87, 176);
+  width: 50px;
+  height: 21px;
+  top:0px;
+  left:0px;
+  cursor:pointer;
+}
+.profile-circle img{
+  object-fit:cover;
+  object-position: center;
+  cursor:pointer;
+  height: 100%;
+  width:100%;
+}
+.superior-navbar span{
+  font-weight: 700;
+  font-size: large;
+  text-shadow: 2px 2px black;
+  cursor:pointer;
+}
+.access-navbar{
+  position:absolute;
+  right: 2%;
+  width: 30%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.inferior-navbar{
+  display: flex;
+  justify-content: space-around;
+
+  color:white;
+  background-color: black;
+  font-weight: 100;
+  box-shadow: 0px 1px white;
+}
+/*----------------------------------------------FOOTER COMPONENT-------------------------------------*/
+footer{
+  gap: 1rem;
+  padding: 1rem;
+  margin-top:1rem;
+}
+footer span{
+  display: block;
+  font-size: xx-large;
+  color:white;
+
+}
+footer a{
+  color:white
+}
+
+/*----------------------------------------HOME COMPONENT---------------------------------------------*/
+.img-container-home{
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width:90%;
+  width: 100%;
+
+}
+.btn-post{
+  height: 60px;
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.img-container-home img{
+  height:100%;
+  width:100%;
+  object-fit:cover;
+}
+.main-home span{
+  position:absolute;
+  z-index: 1;
+  font-weight: 700;
+  font-size: 4rem;
+  color:white;
+  text-shadow: 3px 3px black;
+}
+.top-content-home{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 80%;
+  justify-content: center;
+  align-items: center;
+  margin-top:1rem;
+  color:  white;
+  gap:1rem;
+
+}
+.card-content-home{
+  display: flex;
+  flex-direction:column;
+  width:300px;
+  height: 200px ;
+  background-color:black;
+  cursor:pointer;
+
+  animation: progress-grow auto linear;
+  animation-timeline: view();
+  animation-range:entry 10% cover 50%;
+}
+@keyframes progress-grow{
+  from { opacity: 0% }
+  to { opacity: 100%}
+}
+.card-content-home:hover{
+  box-shadow: 0px 0px 5px 5px white;
+}
+.img-container-topContent{
+  width: 100%;
+  height: 100px;
+}
+.img-container-topContent img{
+  height:100%;
+  width:100%;
+  object-fit:cover;
+  object-position: center;
+}
+.top-creator-home{
+  gap:1rem;
+  display: flex;
+  flex-direction: column;
+  color:white;
+  cursor: pointer;
+}
+.card-creator-home{
+  width: 70vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  border:1px solid white;
+  padding:0.5rem;
+
+  animation: progress-grow auto linear;
+  animation-timeline: view();
+  animation-range:entry 10% cover 50%;
+}
+.card-creator-home:hover{
+  box-shadow: 0px 0px 5px 5px white;
+}
+  
+.img-creator-home{
+  width: 100px;
+  height: 100px;
+}
+.img-creator-home img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+.card-top-music{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  align-items: center;
+  padding: 1rem;
+  width:70vw;
+
+  animation: progress-grow auto linear;
+  animation-timeline: view();
+  animation-range:entry 10% cover 50%;
+
+  border-radius: 8px;
+  background-color: var(--myGrey);
+
+  cursor:pointer;
+}
+.card-top-music span{
+  font-size: small;
+}
+
+/*-----------------------------------SEARCH component---------------------------*/
+.search-component{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap:1rem;
+  padding-top: 4.5rem;
+  margin-bottom: 1rem;
+}
+
+.show-tags{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap:1rem;
+  background-color: black;
+  box-shadow: 2px 2px 2px 5px #000;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  max-height: 100px;
+  overflow-y: scroll;
+}
+
+.show-tags button{
+  border-radius: 8px;
+  width: 170px;
+}
+
+.show-tags a{
+  color:white
+}
+
+.show-content-searchbar{
+  display: flex;
+  flex-direction: column;
+  color:white;
+  align-items: center;
+  gap:0.5rem;
+}
+
+.search-component input{
+  border-color: white;
+  background-color: black;
+  border-radius: 16px;
+  padding: 0.5rem;
+  color:white;
+  width:85vw;
+}
+/*-------------------------------PUB FORM ------------------------------------------*/
+.pub-form-container{
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  padding: 2rem;
+  gap:1.5rem;
+  min-height: 95vh;
+  z-index:-1;
+}
+.input-label{
+  position:relative;
+}
+.input-label input{
+  background-color: black;
+  border-radius: 8px;
+}
+.input-label label{
+  cursor:text;
+}
+.btn-banner{
+  width:400px;
+  height: 400px;
+  background-color: black;
+  color:white;
+  font-size: x-large;
+  position:relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img-over-btn{
+  position:absolute;
+  object-fit:cover;
+  object-position: center;
+  z-index:0;
+  height: 400px;
+  width:400px;
+  cursor:default;
+}
+.btn-cancel{
+  color:white
+}
+.pub-form-container input{
+  border-color: white;
+  background-color: black;
+  border-radius: 16px;
+  padding: 0.5rem;
+  color:white
+}
+.pub-form-container label{
+  color:white;
+  position:absolute;
+  left:20px;
+  bottom:10px;
+}
+input:focus ~ label{
+  right:15px;
+  top:-50%;
+  font-size:small
+}
+button{
+  width:80%;
+  max-width: 600px;
+}
+
+.optional{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap:2rem;
+  padding: 1rem;
+  border:1px solid white;
+}
+.optional h2{text-align: center;}
+/*-----------------------------------RICH TEXT EDITOR--------------------------------*/
+.rich-text-content{
+  width:100%;
+  max-width: 600px;
+  height: 350px;
+  padding: 0.5rem;
+
+  border: 1px solid white;
+  color:white;
+}
+
+.rich-text-content:focus{
+  box-shadow: 0px 0px 5px 5px white;
+}
+.toolbar{
+  display: flex;
+  flex-direction: row;
+  gap:0.5rem;
+}
+/*---------------------------------Dropdowns COMPONENT--------------------------*/
+.tag-buttons{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap:0.8rem;
+  align-items: center;
+  justify-content: center;
+}
+.tag-buttons button{
+  min-width: 140px;
+}
+.dropdown-content{
+  display: flex;
+  flex-direction: column;
+  position:absolute;
+  background-color: black;
+  padding:0.5rem;
+  overflow-y: scroll;
+  max-height: 250px;
+}
+.dropdown-content a{
+  color:white;
+
+}
+.tags-container{
+  display: flex;
+  flex-direction: column;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+/*--------------------------------------ViewPost COMPONENT--------------------------*/
+.show-text{
+  white-space:pre-wrap;
+  color:white;
+  width:80vw;
+  max-width: 700px;
+  min-height: 500px;
+  border:1px solid white;
+  padding:1rem;
+  border-radius: 8px;
+}
+.update-post-boxes{
+  max-width: 80vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items:center;
+}
+.add-comment{
+  display: flex;
+  justify-content: center;
+  flex-direction:column;
+  gap:1rem;
+  align-items: center;
+}
+.user-info{
+  display:flex;
+  flex-direction: row;
+  gap:0.5rem;
+  align-items: center;
+}
+.img-container-view{
+  width: 90px;
+  height: 90px;
+}
+.img-container-view img{
+  width: 100%;
+  height:100%;
+  object-fit:cover;
+  border-radius: 50%;
+}
+.like-dislike{
+  display: flex;
+  flex-direction: row;
+  width: 80vw;
+  max-width: 700px;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding:0.5rem;
+}
+.like-dislike button{
+  background-color: transparent;
+  border:none;
+  max-width: 60px;
+  min-height: 60px;
+  font-size: x-large;
+}
+.like-dislike button:hover{
+  background-color: hotpink;
+}
+.comments-container{
+  display:flex;
+  flex-direction: column;
+  min-height: 20vh;
+  width:80vw;
+  border:1px solid white;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top:2rem;
+  max-width:700px;
+  row-gap: 1rem;
+  text-align: center;
+  justify-content: center;
+  color:white;
+}
+.comment-card{
+  width:100%;
+  gap:0.3rem;
+  text-wrap: wrap;
+  border:1px solid hotpink;
+  border-radius: 8px;
+  padding: 0.5rem;
+  text-align: left;
+}
+.comment-card p{
+  color:white;
+}
+.meta-info-post{
+  display: flex;
+  flex-direction: row;
+  gap:1rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+}
+/*-----------------------------------PROFIL COMPONENT------------------*/
+.profile-container{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+
+  background-color: black;
+  color:white;
+
+  padding-top: 5rem;
+  gap:1rem;
+}
+.account-details{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+
+  background-color: black;
+  color:white;
+  column-gap:0.5rem;
+}
+.img-profile-container{
+
+  width: 300px;
+  height: 300px;
+}
+.account-details img{
+  border-radius: 18px;
+  width: 100%;
+  height:100%;
+  object-fit:cover;
+  object-position: center;
+}
+.personal-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:1rem;
+}
+.content-navbar{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width:100vw;
+  height: 20%;
+  background-color: blueviolet;
+  color:white;
+}
+
+@media(min-width:45rem){
+  .search-component input{
+    width:70vw;
+  }
+  .profile-container{
+    display:grid;
+    grid-template-columns: 1fr 3fr;
+    background-color: black;
+    color:white;
+    gap:0rem;
+    min-height: 100vh;;
+    align-items: start;
+    padding-top: 3.7rem;
+  }
+  .content-navbar{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width:100%;
+    height: 20%;
+    background-color: blueviolet;
+    color:white;
+  }
+  .comments-container{
+    width: 60vw;
+  }
+  textarea{
+    width:400px ;
+  }
+
+  .profile-circle{
+    position: absolute;
+    background-color:rgb(87, 87, 176);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top:10px;
+    left:35px;
+    cursor:pointer;
+    border-radius: 50%;
+  }
+  .profile-circle img{
+    object-fit:cover;
+    object-position: center;
+    cursor:pointer;
+    border-radius: 50%;
+  }
+}
+/*----------------------------FOOTER INFO COMPONENT----------------------*/
+.footer-info{
+  color:white;
+  text-align:center;
+  display: flex;
+  flex-direction: column;
+}
