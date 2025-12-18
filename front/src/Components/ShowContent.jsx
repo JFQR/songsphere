@@ -21,11 +21,6 @@ function ShowContent(){
     const [relatedPosts, setRelatedPosts] = useState([])
     const [idFeelings,setIdFeelings]= useState()
 
-
-    function ver(){
-        console.log(relatedPosts)
-        
-    }
     useEffect(() => {
         const urlParts = window.location.pathname.split('/');
         const id = urlParts[urlParts.length - 2];
@@ -46,7 +41,6 @@ function ShowContent(){
             axios.get(`http://localhost:8000/postsfromtags/${category}/${id}/`).then((res)=>{
                 
                 setPosts(res.data)
-                console.log("dededdeeddeeded",id)
                 for(let i = 0; i<res.data.length;i++){
                     axios.get(`http://localhost:8000/post/${id}/`).then((res)=>{
                         setRelatedPosts(prev => prev, res.data)
@@ -61,8 +55,6 @@ function ShowContent(){
             <Navbar/>
             <SearchBar/>
             <main>
-                <button onClick={ver}>ver</button>
-
                 {mode == "songs" && (
                     <h1>Songs</h1>
                 )}

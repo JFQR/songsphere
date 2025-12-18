@@ -6,9 +6,6 @@ function Navbar(){
 
     const location = useLocation();
     const [userInfo, setUserInfo] = useState(JSON.parse(localStorage.getItem('user')));
-
-    const queryParams = new URLSearchParams(location.search);
-    const mode = queryParams.get('mode');
     
     useEffect(() => {
       if (location.hash) {

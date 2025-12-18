@@ -88,7 +88,7 @@ main{
   align-items: center;
   gap:1rem;
 }
-h1,h2,h3{
+h1,h2,h3, p{
   color:white
 }
 button{
@@ -636,7 +636,14 @@ button{
   background-color: blueviolet;
   color:white;
 }
-
+.optional-fields{
+  width:100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap:2rem;
+}
 @media(min-width:45rem){
   .search-component input{
     width:70vw;

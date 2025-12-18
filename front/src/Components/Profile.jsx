@@ -1,4 +1,4 @@
-import Ppicture from "../assets/images.jpg"
+
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 

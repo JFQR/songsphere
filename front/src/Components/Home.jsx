@@ -2,9 +2,6 @@ import Navbar from "./Navbar"
 import Footer from "./Footer"
 import SearchBar from "./SearchBar"
 
-import homeImg from "../assets/presentation.jpg"
-import prueba from "../assets/images.jpg"
-
 import axios from 'axios'
 
 import { Link, useNavigate } from "react-router-dom";
@@ -70,7 +67,7 @@ function Home(){
             <main className="main-home">
                 
                 <div className="img-container-home">
-                    <img src={homeImg} />
+
                     <span>Welcome<br/> to<br/> Song-<br/>Sphere!</span> 
                 </div>
 

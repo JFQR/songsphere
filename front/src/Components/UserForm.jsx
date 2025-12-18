@@ -4,7 +4,7 @@ import {AuthContext} from "./Context.jsx"
 import {useState, useRef, useContext} from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from "axios"
-import { parseJSON } from "date-fns";
+
 
 
 function UserForm(){
@@ -136,8 +136,9 @@ function UserForm(){
         formData.append("name", name);
 
         let resp = axios.get("http://127.0.0.1:8000/users/",()=>{
-        return resp
+            return resp
         }).then((resp)=>{
+            console.log("la data: ",resp.data)
             users.current = resp.data
         }).then(()=>{
             for(let i = 0; i < users.current.length; i++){
@@ -244,16 +245,18 @@ function UserForm(){
                         >
                             Choose a different image
                         </button>
-                        <button className="btn-banner" id="btn-banner" onClick={openExplorer}>
-                                📸 + Profile picture <br/>(optional)
-                        </button>
-                        <textarea 
-                            placeholder="Add a description (optional)"
-                            rows="5"
-                            cols="33"
-                            id="description"
-                        >
-                        </textarea>
+                        <div className="optional-fields">
+                            <button className="btn-banner" id="btn-banner" onClick={openExplorer}>
+                                    📸 + Profile picture <br/>(optional)
+                            </button>
+                            <textarea 
+                                placeholder="Add a description (optional)"
+                                rows="5"
+                                cols="33"
+                                id="description"
+                            >
+                            </textarea>
+                        </div>
                     </>    
                 )}
                 {mode == "login" && (

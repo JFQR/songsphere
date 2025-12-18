@@ -57,6 +57,7 @@ urlpatterns = [
     path("searchbar/posts/", views.search_post),
     path("searchbar/songs/", views.search_song),
     path("searchbar/albums/", views.search_album),
+    
     path("searchbar/bands/", views.search_band),
     path("searchbar/feelings/", views.search_feeling),
     path("searchbar/genres/", views.search_genre),

@@ -3,13 +3,6 @@ import {useLocation, useParams} from 'react-router-dom'
 import axios from 'axios'
 
 function DropdownsUpdate({sendTags}){
-    function ver(){
-        console.log(tagsPosts)
-            /*for (let i = 0; i < namesTags; i++){
-                let names = axios.get(`http://localhost:8000/${tagsposts[i].category}/${tagsposts[i].fk_tags}/`)
-                console.log(names)
-            }*/
-    }
 {/*-----------take the params fro the url*/}
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
@@ -124,7 +117,6 @@ function DropdownsUpdate({sendTags}){
     return(
         <>
             <div className="tag-buttons">
-                <button onClick={ver}>ver nombres</button>
                 <div className="dropdown">
                     <button 
                         id="tag1" 

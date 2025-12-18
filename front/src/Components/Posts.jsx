@@ -1,7 +1,6 @@
 import Navbar from "./Navbar"
 import Footer  from "./Footer"
 
-import prueba from "../assets/images.jpg"
 
 import {useState, useEffect} from 'react'
 import {Link, useParams, useLocation} from 'react-router-dom'

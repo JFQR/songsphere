@@ -19,10 +19,8 @@ function ViewPost(){
 
     const recieveTags = (texto) => {
         setMensaje(texto);
-    };
-    function displaymsg(){
-        console.log(post)
     }
+    
     const { id, idUser } = useParams();
     const [post, setPost] = useState()
     const [user, setUser] = useState()
@@ -37,7 +35,7 @@ function ViewPost(){
             axios.get(`http://127.0.0.1:8000/user/${idUser}/`),
             axios.get(`http://127.0.0.1:8000/user/${idUser}/`),
         ]).then(([post,user])=>{
-            
+            console.log(location)
             setPost(post.data)
             setUser(user.data)
             setLike(post.data.likes)
@@ -45,10 +43,11 @@ function ViewPost(){
             axios.get(`http://127.0.0.1:8000/comments/post/${post.data.idposts}/`).then((res)=>{
                 setComments(res.data)
             })
-        }).then({
-
+        }).catch(err=>{
+            alert("Couldn't get the info.")
+            console.error(err)
         })
-    },[])
+    },[location])
 
     function giveLike(){
 
@@ -352,13 +351,13 @@ function ViewPost(){
 
 {/*------------------------------COMMENTS--------------------------------*/}
                 <div className="comments-container">
-                    {comments?.map((comment)=>{
+                    {comments?.length > 0 ? comments.map((comment)=>{
                             return(
                                 <div className="comment-card">
                                     <p>{comment.content}</p>
                                 </div> 
                             )
-                    })}
+                    }):(<p>No comments yet</p>)}
                 </div>
 
                 <div className="add-comment">
@@ -373,7 +372,7 @@ function ViewPost(){
 {/*------------------------------COMMENTS--------------------------------*/}
                 </div>
                     </>
-                ):(<p>:/</p>)}
+                ):null}
 
             </main>
             <Footer/>

@@ -1,5 +1,5 @@
-import { useState, useEffect, useContext } from "react"
-import {Link,} from 'react-router-dom'
+import { useState, useEffect } from "react"
+import {Link} from 'react-router-dom'
 import axios from 'axios'
 
 function SearchBar(){
@@ -36,21 +36,11 @@ function SearchBar(){
         }
 
         document.addEventListener('keydown', handlePressEsc);
-
-/*        function handleClickOutside(e) {
-            //setShowTags(false)
-        }
-
-        document.addEventListener('mousedown', handleClickOutside);*/
         
     },[])
     
     function toggleTags(){
         setShowTags(prev => !prev)
-    }
-
-    function ver(){
-        console.log(titles)
     }
 
     const pressEnter = (event) => {
@@ -122,36 +112,39 @@ function SearchBar(){
             {showContent && (
                 <div className="show-content-searchbar">
                     
-                    <h3>Posts</h3>
+                    
                     {titles?.map((title)=>{
-                        return(
+                        return(<>
+                            <h3>Posts</h3>
                             <Link to = {`/post/${title.idposts}/${title.fk_Users}/`} 
                                 className="link"
                             >
                                 {title.title}
                             </Link>
-                        ) 
+                        </>) 
                     })}
-                    <h3>Songs</h3>
+                    
                     {songs?.map((song)=>{
-                        return(
+                        return(<>
+                            <h3>Songs</h3>
                             <Link to = {`/post/${song.idposts}/${song.fk_Users}/`} 
                                 className="link"
                             >
                                 {song.songtitle}
                             </Link>
-                        )
+                        </>)
                         
                     })}
-                    <h3>Albums</h3>
+                    
                     {albums?.map((album)=>{
-                        return(
+                        return(<>
+                            <h3>Albums</h3>
                             <Link to = {`/post/${album.idposts}/${album.fk_Users}/`} 
                                 className="link"
                             >
                                 {album.album}
                             </Link>
-                        )
+                        </>)
                         
                     })}
 
